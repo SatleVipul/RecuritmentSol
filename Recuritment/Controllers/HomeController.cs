@@ -36,6 +36,17 @@ namespace Recuritment.Controllers
         [HttpPost]
         public ActionResult Create(tb_CandidateMaster model)
         {
+            if(model.Skills == null)
+
+            {
+                
+                model.Skills = "";
+            }
+            if(model.Discription == null)
+            {
+                model.Discription = "";
+
+            }
             object[] sqlParams =
             {
                 new SqlParameter("@CandidateName",model.CandidateName),
