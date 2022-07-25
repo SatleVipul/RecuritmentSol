@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Recuritment.Models.tb_CandidateMaster>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-10"> <h2>Index</h2></div>
+    <div class="col-md-2"><h3>@Html.ActionLink("Create", "Create")</h3></div>
+   
+</div>
+
+<div>
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Candidate Name</th>
+                <th>Date Of Birth</th>
+                <th>Description</th>
+                <th>Skills</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody >
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.CandidateName</td>
+                <td>@item.DateOfBirth.ToShortDateString()</td>
+                <td>@item.Discription</td>
+                <td>@item.Skills</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
